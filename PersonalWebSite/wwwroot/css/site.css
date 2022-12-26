@@ -1,0 +1,135 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+.border-top.footer {
+    text-align: center;
+    background-color: #81BEF7;
+    color: #FFFFFF;
+}
+
+.navbar.navbar-dark {
+    background-color: #81BEF7;
+}
+
+.navbar.navbar-dark .navbar-nav > li > a {
+    color: #FFFFFF;
+}
+
+.navbar.navbar-dark .navbar-nav > li > a:hover {
+    color: #FFFFFF;
+}
+
+.navbar .nav-item:hover .nav-link {
+    background-color: #2E64FE;
+}
+
+.navbar .nav-link:hover {
+    background-color: #2E64FE;
+}
+
+.navbar .nav-item:hover .dropdown-menu {
+    background-color: #81BEF7;
+}
+
+.navbar .nav-item:hover .dropdown-menu .dropdown-item {
+    color: #FFFFFF;
+}
+
+.navbar .nav-item:hover .dropdown-menu .dropdown-item:hover {
+    background-color: #2E64FE;
+}
+
+@media all and (min-width: 576px) {
+    .navbar .nav-item .dropdown-menu {
+        display: none;
+    }
+
+    .navbar .nav-item:hover .dropdown-menu {
+        display: block;
+    }
+
+    .navbar .nav-item .dropdown-menu {
+        margin-top: 0;
+    }
+}
+
+@media all and (max-width: 576px) {
+    .navbar .nav-item .dropdown-menu {
+        display: none;
+    }
+
+    .navbar .nav-item:hover .dropdown-menu {
+        display: block;
+    }
+
+    .navbar .nav-item .dropdown-menu {
+        margin-left: 0;
+    }
+}
+
+.bg {
+    background-color: #81BEF7;
+}
+
+.con {
+    width: 100%;
+    margin-top: 50px;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+}
+
+form {
+    background-color: #2E64FE;
+    color: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    padding: 2vw 4vw;
+    width: 90%;
+    max-width: 600px;
+    border-radius: 10px;
+}
+
+form h3 {
+    margin-bottom: 20px;
+}
+
+form input, form textarea {
+    border: 0;
+    margin: 20px 0;
+    padding: 20px;
+    resize: none;
+}
+
+form button {
+    padding: 20px;
+    background: #FF5361;
+    color: #FFFFFF;
+    font-size: 20px;
+    width: 200px;
+    margin: 20px auto 0;
+    border-radius: 30px;
+    cursor: pointer;
+    outline: none;
+}
+
+form button:focus {
+    outline: none !important;
+}
