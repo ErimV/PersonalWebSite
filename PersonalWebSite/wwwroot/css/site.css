@@ -133,3 +133,56 @@ form button {
 form button:focus {
     outline: none !important;
 }
+
+#imgs {
+    width: 100%;
+    height: auto;
+}
+
+.imgbox {
+    text-align: center;
+    border: 2px solid black;
+}
+
+#desc {
+    text-align: left;
+}
+
+.main {
+    padding-bottom: 50px;
+}
+
+.text {
+    margin-top: 20px;
+    text-align: left;
+    border: 2px solid black;
+}
+
+.outer {
+    margin-top: 20px;
+    padding: 2px;
+    background: lightgray;
+}
+
+.inner {
+    background: white;
+}
+
+.outer > h3, .inner {
+    margin: 10px;
+    padding: 1px;
+}
+
+.inner > h4, p {
+    margin: 5px;
+}
+
+.new {
+    border: 2px solid black;
+}
+
+.slider {
+    padding: 20px;
+    margin-top: 20px;
+    background: lightgray;
+}

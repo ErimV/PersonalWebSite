@@ -23,7 +23,22 @@ namespace PersonalWebSite.Controllers
             return View();
         }
 
-        public IActionResult ContactMe()
+		public IActionResult Detail()
+		{
+			return View();
+		}
+
+		public IActionResult Resume()
+		{
+			return View();
+		}
+
+		public IActionResult HomeTown()
+		{
+			return View();
+		}
+
+		public IActionResult ContactMe()
         {
 			return View();
 		}
