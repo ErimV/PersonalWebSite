@@ -2,11 +2,10 @@
 
 namespace PersonalWebSite.Models
 {
-	public class Admin
+	public class Image
 	{
-		[Key] 
+		[Key]
 		public int Id { get; set; }
-		public User User { get; set; }
-		public string Authority { get; set; }
+		public string Name { get; set; }
 	}
 }
