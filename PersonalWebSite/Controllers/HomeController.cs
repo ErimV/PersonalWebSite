@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using PersonalWebSite.Models;
 using System.Diagnostics;
 
@@ -42,12 +43,48 @@ namespace PersonalWebSite.Controllers
         {
 			return View();
 		}
-
-		public IActionResult Login()
+		public IActionResult Login2()
 		{
 			return View();
 		}
-
+        [HttpPost]
+		public IActionResult Login2(User user)
+		{
+			using (Context db = new Context())
+			{
+				var usr = db.Users.Single(u => u.Email == user.Email && u.Password == user.Password);
+                if(usr != null)
+                {
+                    HttpContext.Session.SetString("Id", usr.Id.ToString());
+					HttpContext.Session.SetString("Name", usr.Name.ToString());
+					HttpContext.Session.SetString("Surname", usr.Surname.ToString());
+					HttpContext.Session.SetString("Title", usr.Title.ToString());
+                    return RedirectToAction("Index");
+				}
+                else
+                {
+                    ModelState.AddModelError("", "E-mail or Password is wrong.");
+                }
+			}
+			return View();
+		}
+		public IActionResult Register2()
+        {
+            return View();
+        }
+        [HttpPost]
+		public IActionResult Register2(User user)
+		{
+			if (ModelState.IsValid)
+            {
+                using (Context db = new Context())
+                {
+                    db.Users.Add(user);
+                    db.SaveChanges();
+                }
+            }
+            return View();
+		}
 		[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

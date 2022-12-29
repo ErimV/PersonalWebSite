@@ -118,7 +118,11 @@ form input, form textarea {
     resize: none;
 }
 
-form button {
+form .button-holder {
+    text-align: center;
+}
+
+form .button-holder button {
     padding: 20px;
     background: #FF5361;
     color: #FFFFFF;
