@@ -8,7 +8,7 @@
 <body class="bg">
 	<div class="con">
 
-		<form action="https://formspree.io/f/xpzbkjbg" method="post">
+		<form class="myForm" action="https://formspree.io/f/xpzbkjbg" method="post">
 			<h3>İletişim</h3>
 			İsminiz:
 			<input type="text" class="name" placeholder="İsminiz" name="name" required>
@@ -19,9 +19,12 @@
 			Mesajınız:
 			<textarea id="message" class="message" name="message" rows="5" placeholder="Mesajınız" required></textarea>
 
-			<button type="reset" name="clear">Temizle</button>					 
-			<button type="submit" class="submit" name="send">Gönder</button>
-
+			<div class="button-holder">				 
+				<button type="submit" class="submit" name="send">Gönder</button>
+			</div>
+			<div class="button-holder">
+				<button type="reset" name="clear">Temizle</button>
+			</div>
 		</form> 
 	</div>
 </body>

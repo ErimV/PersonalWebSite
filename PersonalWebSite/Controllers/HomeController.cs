@@ -1,6 +1,9 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Localization;
+using Microsoft.Extensions.Localization;
 using PersonalWebSite.Models;
+using PersonalWebSite.Resources.Languages;
 using System.Diagnostics;
 
 namespace PersonalWebSite.Controllers
@@ -8,14 +11,16 @@ namespace PersonalWebSite.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly IStringLocalizer<Lang> _stringLocalizer;
+        private readonly IHtmlLocalizer<Lang> _htmlLocalizer;
 
-        public HomeController(ILogger<HomeController> logger)
-        {
-            _logger = logger;
-        }
+        public HomeController(IStringLocalizer<Lang> stringLocalizer)
+        => _stringLocalizer = stringLocalizer;
+
 
         public IActionResult Index()
         {
+            ViewBag.PageIndex = _stringLocalizer["page.Index"];
             return View();
         }
 
@@ -26,31 +31,58 @@ namespace PersonalWebSite.Controllers
 
 		public IActionResult Detail()
 		{
-			return View();
+            ViewBag.PageDetail = _stringLocalizer["page.Detail"];
+            return View();
 		}
 
 		public IActionResult Resume()
 		{
-			return View();
+            ViewBag.PageResume = _stringLocalizer["page.Resume"];
+            return View();
 		}
 
 		public IActionResult HomeTown()
 		{
-			return View();
+            ViewBag.PageHomeTown = _stringLocalizer["page.HomeTown"];
+            return View();
 		}
 
-		public IActionResult ContactMe()
+        public IActionResult Comments()
         {
-			return View();
+            ViewBag.PageComments = _stringLocalizer["page.Comments"];
+            return View();
+        }
+        [HttpPost]
+        public IActionResult LeaveComment(Comment com)
+        {
+			using (Context db = new Context())
+            {
+				Comment comment = new Comment();
+				comment.Text = com.Text;
+				comment.UserName = HttpContext.Session.GetString("Name");
+				comment.UserSurname = HttpContext.Session.GetString("Surname");
+				comment.UserTitle = HttpContext.Session.GetString("Title");
+				comment.TimeStamp = DateTime.Now;
+				db.Comments.Add(comment);
+				db.SaveChanges();
+                return RedirectToAction("Comment");
+            }
+		}
+        public IActionResult ContactMe()
+        {
+            ViewBag.PageContactMe = _stringLocalizer["page.ContactMe"];
+            return View();
 		}
 		public IActionResult Login2()
 		{
-			return View();
+            ViewBag.PageLogin = _stringLocalizer["page.Login"];
+            return View();
 		}
         [HttpPost]
 		public IActionResult Login2(User user)
 		{
-			using (Context db = new Context())
+            ViewBag.PageLogin = _stringLocalizer["page.Login"];
+            using (Context db = new Context())
 			{
 				var usr = db.Users.Single(u => u.Email == user.Email && u.Password == user.Password);
                 if(usr != null)
@@ -81,6 +113,11 @@ namespace PersonalWebSite.Controllers
                 {
                     db.Users.Add(user);
                     db.SaveChanges();
+                    HttpContext.Session.SetString("Id", user.Id.ToString());
+                    HttpContext.Session.SetString("Name", user.Name.ToString());
+                    HttpContext.Session.SetString("Surname", user.Surname.ToString());
+                    HttpContext.Session.SetString("Title", user.Title.ToString());
+                    return RedirectToAction("Index");
                 }
             }
             return View();

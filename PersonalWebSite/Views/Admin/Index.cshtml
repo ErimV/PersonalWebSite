@@ -5,4 +5,7 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<p>Deneme</p>
+Hello @User.Identity.Name
+<a asp-action="Logout" asp-controller="Admin">
+    Logout
+</a>

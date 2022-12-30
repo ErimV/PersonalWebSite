@@ -1,12 +1,34 @@
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using PersonalWebSite.Models;
+using System.Globalization;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 var connectionString = builder.Configuration.GetConnectionString("SiteDatabase");
 builder.Services.AddDbContext<Context>(options => options.UseSqlServer(connectionString));
-builder.Services.AddControllersWithViews();
+builder.Services.AddControllersWithViews().AddViewLocalization();
+
+builder.Services.AddLocalization(options =>
+{
+    options.ResourcesPath = "Resources";
+});
+
+builder.Services.Configure<RequestLocalizationOptions>(options =>
+{
+    options.DefaultRequestCulture = new("tr-TR");
+
+    CultureInfo[] cultures = new CultureInfo[]
+    {
+        new("tr-TR"),
+        new("en-US"),
+    };
+
+    options.SupportedCultures = cultures;
+    options.SupportedUICultures = cultures;
+});
 
 builder.Services.AddDistributedMemoryCache();
 builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
@@ -17,6 +39,8 @@ builder.Services.AddSession(options =>
 	options.Cookie.HttpOnly = true;
 	options.Cookie.IsEssential = true;
 });
+
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie();
 
 var app = builder.Build();
 
@@ -33,9 +57,13 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+app.UseAuthentication();
+
 app.UseAuthorization();
 
 app.UseSession();
+
+app.UseRequestLocalization();
 
 app.MapControllerRoute(
     name: "default",

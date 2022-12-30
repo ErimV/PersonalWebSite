@@ -96,7 +96,7 @@ body {
     justify-content: center;
 }
 
-form {
+.myForm {
     background-color: #2E64FE;
     color: #FFFFFF;
     display: flex;
@@ -107,22 +107,22 @@ form {
     border-radius: 10px;
 }
 
-form h3 {
+.myForm h3 {
     margin-bottom: 20px;
 }
 
-form input, form textarea {
+.myForm input .myForm textarea {
     border: 0;
     margin: 20px 0;
     padding: 20px;
     resize: none;
 }
 
-form .button-holder {
+.myForm .button-holder {
     text-align: center;
 }
 
-form .button-holder button {
+.myForm .button-holder button {
     padding: 20px;
     background: #FF5361;
     color: #FFFFFF;
@@ -134,7 +134,11 @@ form .button-holder button {
     outline: none;
 }
 
-form button:focus {
+.myForm .button-holder a {
+    color: #FFFFFF;
+}
+
+.myForm button:focus {
     outline: none !important;
 }
 
