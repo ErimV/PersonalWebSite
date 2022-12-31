@@ -15,6 +15,26 @@ namespace PersonalWebSite.Controllers
         {
             return View();
         }
+        [Authorize]
+        public IActionResult Users() 
+        {
+            using (Context db = new Context())
+            {
+                var user = db.Users.ToList();
+                return View(user);
+            }
+        }
+
+        public IActionResult DeleteUser(User user)
+        {
+            using (Context db = new Context())
+            {
+                var usr = db.Users.Find(user.Id);
+                db.Users.Remove(usr);
+                db.SaveChanges();
+                return RedirectToAction("Users");
+            }
+        }
 
         public IActionResult Login2()
         {

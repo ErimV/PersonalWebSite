@@ -1,6 +1,5 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@using PersonalWebSite.Models
+@model List<Comment>
 @{
 }
 
@@ -12,9 +11,9 @@
                     <h4 class="mb-0">Recent comments</h4>
                     <p class="fw-light mb-4 pb-2">Latest Comments section by users</p>
                     
-                    @*if (Model.Comments != null && Model.Comments.Count > 0)
+                    @if (Model != null && Model.Count > 0)
                     {
-                        foreach (var comment in Model.Comments)
+                        foreach (var comment in Model)
                         {
                              <div class="d-flex flex-start">
                                 <div>
@@ -26,7 +25,7 @@
                                 </div>
                             </div>
                         }
-                    }*@
+                    }
                     else
                     {
                         <p>There are no comments right now.</p>
@@ -34,13 +33,7 @@
                     }
                 </div>
                 <div class="card-body p-4">
-                    <form asp-action="LeaveComment">
-                        <div class="form-group">
-                            <label>Comment</label>
-                            <textarea class="form-control" rows="3" name="Comment" placeholder="Write your comment here."></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-light">Leave a comment</button>
-                    </form>
+                        <a href="/Home/LeaveComment" class="btn btn-light">Leave a comment</a>
                 </div>
             </div>
         </div>

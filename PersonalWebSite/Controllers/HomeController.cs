@@ -50,6 +50,15 @@ namespace PersonalWebSite.Controllers
         public IActionResult Comments()
         {
             ViewBag.PageComments = _stringLocalizer["page.Comments"];
+            using (Context db = new Context())
+            {
+                var comment = db.Comments.ToList();
+                return View(comment);
+            }
+        }
+        public IActionResult LeaveComment()
+        {
+            ViewBag.PageLogin = _stringLocalizer["page.Login"];
             return View();
         }
         [HttpPost]
@@ -58,14 +67,14 @@ namespace PersonalWebSite.Controllers
 			using (Context db = new Context())
             {
 				Comment comment = new Comment();
-				comment.Text = com.Text;
+                comment.Text = com.Text;
 				comment.UserName = HttpContext.Session.GetString("Name");
 				comment.UserSurname = HttpContext.Session.GetString("Surname");
 				comment.UserTitle = HttpContext.Session.GetString("Title");
 				comment.TimeStamp = DateTime.Now;
 				db.Comments.Add(comment);
 				db.SaveChanges();
-                return RedirectToAction("Comment");
+                return RedirectToAction("Comments");
             }
 		}
         public IActionResult ContactMe()

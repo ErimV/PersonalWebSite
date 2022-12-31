@@ -1,20 +1,20 @@
 html {
-  font-size: 14px;
+    font-size: 14px;
 }
 
 @media (min-width: 768px) {
-  html {
+    html {
     font-size: 16px;
-  }
+    }
 }
 
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
 }
 
 body {
-  margin-bottom: 60px;
+    margin-bottom: 60px;
 }
 
 .border-top.footer {
@@ -82,6 +82,41 @@ body {
         margin-left: 0;
     }
 }
+
+.center {
+    margin-top: 50px;
+    background-color: #2E64FE;
+    color: white;
+    width: 600px;
+    height: 550px;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.content {
+    padding: 30px;
+}
+.content h5{
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+.center .avatar img{
+    border-radius: 50%;
+    width: 140px;
+    height: 140px;
+    margin-top: 5%;
+}
+
+.social i{
+    padding: 0 10px;
+    font-size: 50px;
+    color: white;
+}
+
+    .social i:hover {
+        color: #81BEF7;
+    }
 
 .bg {
     background-color: #81BEF7;
@@ -161,7 +196,7 @@ body {
 }
 
 .text {
-    margin-top: 20px;
+    margin-top: 50px;
     text-align: left;
     border: 2px solid black;
 }
@@ -193,4 +228,8 @@ body {
     padding: 20px;
     margin-top: 20px;
     background: lightgray;
+}
+
+.admin-top {
+    background-color: #2E64FE;
 }
