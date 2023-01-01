@@ -24,7 +24,7 @@ namespace PersonalWebSite.Models
             if (!optionsBuilder.IsConfigured)
             {
                 optionsBuilder.UseSqlServer(
-                "Server=DESKTOP-9BEN4HD; Initial Catalog=PersonalWebSiteDB; User Id=erimv; Password=123456; TrustServerCertificate=True");
+                "Server=DESKTOP-D4ETCFE; Initial Catalog=PersonalWebSiteDB; User Id=erimv; Password=123456; TrustServerCertificate=True");
             }
         }
     }

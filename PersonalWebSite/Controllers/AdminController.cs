@@ -24,7 +24,16 @@ namespace PersonalWebSite.Controllers
                 return View(user);
             }
         }
-
+        [Authorize]
+        public IActionResult Comments()
+        {
+            using (Context db = new Context())
+            {
+                var comment = db.Comments.ToList();
+                return View(comment);
+            }
+        }
+        [Authorize]
         public IActionResult DeleteUser(User user)
         {
             using (Context db = new Context())
@@ -33,6 +42,17 @@ namespace PersonalWebSite.Controllers
                 db.Users.Remove(usr);
                 db.SaveChanges();
                 return RedirectToAction("Users");
+            }
+        }
+        [Authorize]
+        public IActionResult DeleteComment(Comment comment)
+        {
+            using (Context db = new Context())
+            {
+                var com = db.Comments.Find(comment.Id);
+                db.Comments.Remove(com);
+                db.SaveChanges();
+                return RedirectToAction("Comments");
             }
         }
 

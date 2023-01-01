@@ -1,20 +1,24 @@
 ﻿@model PersonalWebSite.Models.Comment
 
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="LeaveComment">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Text" class="control-label"></label>
-                <input asp-for="Text" class="form-control" />
-                <span asp-validation-for="Text" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
+<body>
+    <div class="row">
+        <div class="col-md-3 col-sm-0"></div>
+        <div class="col-md-6 col-sm-12 con">
+            <form class="myForm" asp-action="LeaveComment">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="Text" class="control-label">Yorumunuz</label>
+                    <textarea rows="5" placeholder="Yorum" asp-for="Text" class="form-control"></textarea>
+                    <span asp-validation-for="Text" class="text-danger"></span>
+                </div>
+                <div class="button-holder">
+                    <button type="submit" value="Create">Gönder</button>
+                </div>
+            </form>
+        </div>
+        <div class="col-md-3 col-sm-0"></div>
     </div>
-</div>
+</body>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

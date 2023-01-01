@@ -8,8 +8,8 @@
         <div class="col-md-12 col-lg-10">
             <div class="card text-dark">
                 <div class="card-body p-4">
-                    <h4 class="mb-0">Recent comments</h4>
-                    <p class="fw-light mb-4 pb-2">Latest Comments section by users</p>
+                    <h4 class="mb-0">Tüm Yorumlar</h4>
+                    <p class="fw-light mb-4 pb-2">Kullanıcılar tarafından bırakılan yorumlar</p>
                     
                     @if (Model != null && Model.Count > 0)
                     {
@@ -18,8 +18,9 @@
                              <div class="d-flex flex-start">
                                 <div>
                                     <h6 class="fw-bold mb-1">@comment.UserName @comment.UserSurname</h6>
+                                    <h6 class="mb-1">@comment.UserTitle</h6>
                                     <div class="d-flex align-items-center mb-3">
-                                        <p class="mb-0">Posted on @comment.TimeStamp</p>
+                                        <p class="mb-0">@comment.TimeStamp tarihinde yazıldı.</p>
                                     </div>
                                     <p class="mb-0">@comment.Text</p>
                                 </div>
@@ -28,12 +29,12 @@
                     }
                     else
                     {
-                        <p>There are no comments right now.</p>
+                        <p>Hiç yorum yok.</p>
                         <hr />
                     }
                 </div>
                 <div class="card-body p-4">
-                        <a href="/Home/LeaveComment" class="btn btn-light">Leave a comment</a>
+                        <a href="/Home/LeaveComment" class="btn btn-light">Yorum Bırak</a>
                 </div>
             </div>
         </div>

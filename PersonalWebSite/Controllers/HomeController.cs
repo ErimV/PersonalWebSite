@@ -24,11 +24,6 @@ namespace PersonalWebSite.Controllers
             return View();
         }
 
-        public IActionResult Privacy()
-        {
-            return View();
-        }
-
 		public IActionResult Detail()
 		{
             ViewBag.PageDetail = _stringLocalizer["page.Detail"];

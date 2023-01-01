@@ -1,0 +1,29 @@
+﻿@using PersonalWebSite.Models
+@model List<Comment>
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<table class="table table-bordered mt-3">
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Title</th>
+        <th>Text</th>
+        <th>Date</th>
+        <th>Delete</th>
+    </tr>
+    @foreach (var comment in Model)
+    {
+        <tr>
+            <td>@comment.Id</td>
+            <td>@comment.UserName @comment.UserSurname</td>
+            <td>@comment.UserTitle</td>
+            <td>@comment.Text</td>
+            <td>@comment.TimeStamp</td>
+
+            <td><a class="btn btn-primary" href="/Admin/DeleteComment/@comment.Id">Delete</a></td>
+        </tr>
+    }
+
+</table>
