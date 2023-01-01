@@ -1,0 +1,43 @@
+﻿@using PersonalWebSite.Models
+@model List<Comment>
+@{
+    ViewData["Title"] = "Yorumlar";
+}
+
+<div class="container my-5 py-5">
+    <div class="row d-flex justify-content-center">
+        <div class="col-md-12 col-lg-10">
+            <div class="card text-dark">
+                <div class="card-body p-4 comments-con">
+                    <h4 class="mb-0">Tüm Yorumlar</h4>
+                    <p class="fw-light mb-4 pb-2">Kullanıcılar tarafından bırakılan yorumlar</p>
+                    
+                    @if (Model != null && Model.Count > 0)
+                    {
+                        foreach (var comment in Model)
+                        {
+                            <div class="d-flex flex-start comment-row">
+                                <div>
+                                    <h5 class="fw-bolder mb-1">@comment.UserName @comment.UserSurname</h5>
+                                    <p class="fw-bold mb-1">@comment.UserTitle</p>
+                                    <p class="mb-0">@comment.Text</p>
+                                    <div class="d-flex align-items-center mb-3">
+                                        <p class="mb-0">@comment.TimeStamp</p>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    }
+                    else
+                    {
+                        <p>Hiç yorum yok.</p>
+                        <hr />
+                    }
+                </div>
+                <div class="card-body p-4">
+                        <a href="/Home/LeaveComment" class="btn btn-primary">Yorum Bırak</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,32 @@
+﻿@model PersonalWebSite.Models.User
+
+@{
+    Layout = "~/Views/Shared/_EmptyLayout.cshtml";
+    ViewData["Title"] = "Giriş";
+}
+
+<body class="bg">
+    <div class="con">
+        <form class="myForm" asp-action="Login">
+            <h3>Giriş Yap</h3>
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Password" class="control-label">Şifre</label>
+                <input asp-for="Password" class="form-control" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            <div class="button-holder">
+                <button type="submit" value="Login" class="btn btn-primary">Giriş Yap</button>
+            </div>
+            <div class="button-holder">
+                <label class="control-label">Hesabınız Yok mu?</label>
+                <a asp-action="Register">Kayıt Ol</a>
+            </div>
+        </form>
+    </div>
+</body>

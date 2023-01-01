@@ -1,0 +1,26 @@
+﻿@using PersonalWebSite.Models
+@model List<User>
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<table class="table table-bordered mt-3">
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Title</th>
+        <th>Email</th>
+        <th>Delete</th>
+    </tr>
+    @foreach (var user in Model)
+    {
+        <tr>
+            <td>@user.Id</td>
+            <td>@user.Name @user.Surname</td>
+            <td>@user.Title</td>
+            <td>@user.Email</td>
+            <td><a class="btn btn-primary" href="/Admin/DeleteUser/@user.Id">Delete</a></td>
+    </tr> 
+    }
+    
+</table>

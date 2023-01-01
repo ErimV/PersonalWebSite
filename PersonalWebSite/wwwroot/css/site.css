@@ -1,0 +1,245 @@
+html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+    font-size: 16px;
+    }
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
+}
+
+.border-top.footer {
+    text-align: center;
+    background-color: #81BEF7;
+    color: #FFFFFF;
+}
+
+.navbar.navbar-dark {
+    background-color: #81BEF7;
+}
+
+.navbar.navbar-dark .navbar-nav > li > a {
+    color: #FFFFFF;
+}
+
+.navbar.navbar-dark .navbar-nav > li > a:hover {
+    color: #FFFFFF;
+}
+
+.navbar .nav-item:hover .nav-link {
+    background-color: #2E64FE;
+}
+
+.navbar .nav-link:hover {
+    background-color: #2E64FE;
+}
+
+.navbar .nav-item:hover .dropdown-menu {
+    background-color: #81BEF7;
+}
+
+.navbar .nav-item:hover .dropdown-menu .dropdown-item {
+    color: #FFFFFF;
+}
+
+.navbar .nav-item:hover .dropdown-menu .dropdown-item:hover {
+    background-color: #2E64FE;
+}
+
+@media all and (min-width: 576px) {
+    .navbar .nav-item .dropdown-menu {
+        display: none;
+    }
+
+    .navbar .nav-item:hover .dropdown-menu {
+        display: block;
+    }
+
+    .navbar .nav-item .dropdown-menu {
+        margin-top: 0;
+    }
+}
+
+@media all and (max-width: 576px) {
+    .navbar .nav-item .dropdown-menu {
+        display: none;
+    }
+
+    .navbar .nav-item:hover .dropdown-menu {
+        display: block;
+    }
+
+    .navbar .nav-item .dropdown-menu {
+        margin-left: 0;
+    }
+}
+
+.center {
+    margin-top: 50px;
+    background-color: #2E64FE;
+    color: white;
+    width: 600px;
+    height: 550px;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.content {
+    padding: 30px;
+}
+.content h5{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.center .avatar img{
+    border-radius: 50%;
+    width: 140px;
+    height: 140px;
+    margin-top: 5%;
+}
+
+.social i{
+    padding: 0 10px;
+    font-size: 50px;
+    color: white;
+}
+
+.social i:hover {
+    color: #81BEF7;
+}
+
+.bg {
+    background-color: #81BEF7;
+}
+
+.con {
+    width: 100%;
+    margin-top: 50px;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+}
+
+.myForm {
+    background-color: #2E64FE;
+    color: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    padding: 2vw 4vw;
+    width: 90%;
+    max-width: 600px;
+    border-radius: 10px;
+}
+
+.myForm h3 {
+    margin-bottom: 20px;
+}
+
+.myForm input .myForm textarea {
+    border: 0;
+    margin: 20px 0;
+    padding: 20px;
+    resize: none;
+}
+
+.myForm .button-holder {
+    text-align: center;
+}
+
+.myForm .button-holder button {
+    padding: 20px;
+    background: #FF5361;
+    color: #FFFFFF;
+    font-size: 20px;
+    width: 200px;
+    margin: 20px auto 0;
+    border-radius: 30px;
+    cursor: pointer;
+    outline: none;
+}
+
+.myForm .button-holder a {
+    color: #FFFFFF;
+}
+
+.myForm button:focus {
+    outline: none !important;
+}
+
+#imgs {
+    width: 100%;
+    height: auto;
+}
+
+.imgbox {
+    text-align: center;
+    border: 2px solid black;
+}
+
+#desc {
+    text-align: left;
+}
+
+.main {
+    padding-bottom: 50px;
+}
+
+.text {
+    margin-top: 50px;
+    text-align: left;
+    border: 2px solid black;
+}
+
+.outer {
+    margin-top: 20px;
+    padding: 2px;
+    background: lightgray;
+}
+
+.inner {
+    background: white;
+}
+
+.outer > h3, .inner {
+    margin: 10px;
+    padding: 1px;
+}
+
+.inner > h4, h5, p {
+    margin: 5px;
+}
+
+.new {
+    border: 2px solid black;
+}
+
+.img-holder {
+    padding: 20px;
+    margin-top: 20px;
+    background: lightgray;
+}
+
+.admin-top {
+    background-color: #2E64FE;
+}
+
+.comments-con .comment-row {
+    border-bottom: 1px solid lightgray;
+    padding: 15px;
+}
+
+.comments-con .comment-row:hover {
+    background: rgba(0, 0, 0, 0.02);
+    cursor: pointer;
+}

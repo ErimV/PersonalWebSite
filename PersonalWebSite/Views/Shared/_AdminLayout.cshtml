@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html>
+<title>Admin Panel</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>@ViewData["Title"]</title>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+<body>
+    <div class="w3-sidebar w3-light-grey w3-bar-block" style="width:25%">
+        <h3 class="w3-bar-item">Admin Panel</h3>
+        <a asp-controller="Admin" asp-action="Users" class="w3-bar-item w3-button">Users</a>
+        <a asp-controller="Admin" asp-action="Comments" class="w3-bar-item w3-button">Comments</a>
+        <a class="w3-bar-item w3-button btn-danger" asp-action="Logout" asp-controller="Admin">Logout</a>
+    </div>
+    <div style="margin-left:25%">
+
+        <div class="w3-container w3-teal admin-top">
+            <h1>Personal Web Site</h1>
+        </div>
+
+        <div class="w3-container">
+            @RenderBody()
+        </div>
+
+    </div>
+
+</body>
+</html>
